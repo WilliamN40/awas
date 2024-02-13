@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .app {
+    @apply relative z-10 flex justify-center items-center flex-col mx-auto sm:px-16 px-6;
+  } */
+  
+  .nav-active {
+    @apply bg-gray-900 text-white
+  }
+
+  .nav-not-active {
+    @apply text-gray-300 hover:bg-gray-700 hover:text-white
+  }
