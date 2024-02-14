@@ -1,7 +1,6 @@
 "use client"
 
 import Image from 'next/image';
-
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -14,11 +13,17 @@ const CreateForm = () => {
         lokasi: "",
         deskripsi: "",
     });
+    const [foto, setFoto] = useState(''); 
     const [fotoSrc, setFotoSrc] = useState('');
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
         const selectedFile = e.target.files && e.target.files[0];
-        // setFoto(selectedFile);
+        if (!selectedFile?.type.includes('image')) {
+            alert('File harus berupa gambar');
+            return;
+        }
+        setFoto(e.target.value);
 
         const reader = new FileReader();
         reader.readAsDataURL(selectedFile as Blob);
@@ -87,16 +92,36 @@ const CreateForm = () => {
                     className='block rounded-md'
                     placeholder='Berikan deskripsi singkat kejadian'
                 />
+                
+                
                 <p>Foto:</p>
+                
+                <div className='flex'>
                 <input 
                     type="file" 
                     onChange={handleImageChange}
-                    accept="image/*"
+                    value={foto}
+                    //accept="image/*"
                 />
+
+                <button
+                    type="button"
+                    onClick={() => {
+                        setFotoSrc('');
+                        setFoto('');
+                    }}
+                    className='bg-gray-200 text-gray-700 rounded-md p-2 hover:enabled:bg-gray-300 disabled:opacity-50'
+                    disabled={!fotoSrc}
+                >
+                    Hapus Foto
+                </button>
+
+                </div>
                 
                 {fotoSrc &&  
                     <Image src={fotoSrc} alt="uploadedfoto" width={300} height={300}/>
                 }
+
 
                 <button 
                     type="submit"

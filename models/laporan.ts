@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 
 const LaporanSchema = new mongoose.Schema({
+    userID: {
+        type: String,
+        required: true
+    },
     judul: {
         type: String,
         required: true
