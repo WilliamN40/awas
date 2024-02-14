@@ -16,7 +16,7 @@ const ListLaporan = ({ data, handleEdit, handleDelete }: any) => {
                 <LaporanCard 
                     key={laporan._id}
                     laporan={laporan}
-                    canAccess={laporan.userID === currentUserID}
+                    canAccess={laporan.userID === currentUserID || currentUserID === "admin"}
                     handleEdit={handleEdit}
                     handleDelete={handleDelete}
                 />
