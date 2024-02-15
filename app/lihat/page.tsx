@@ -11,7 +11,7 @@ const ListLaporan = ({ data, handleEdit, handleDelete }: any) => {
     const currentUserID = getCookie('userID');
 
     return (
-        <div className="mt-16 flex flex-col-reverse">
+        <div className="flex flex-col-reverse">
             {data.map((laporan: any) => (
                 <LaporanCard 
                     key={laporan._id}
@@ -67,6 +67,13 @@ export default function Lihat() {
     }
 
     return (
-        <ListLaporan data={listLaporan} handleEdit={handleEdit} handleDelete={handleDelete} />
+        <div>
+            <header className="bg-white shadow">
+                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900">Lihat Laporan</h1>
+                </div>
+            </header>
+            <ListLaporan data={listLaporan} handleEdit={handleEdit} handleDelete={handleDelete} />
+        </div>
     )
 }

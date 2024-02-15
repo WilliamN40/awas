@@ -31,9 +31,11 @@ const LaporanCard = ({ laporan, canAccess, handleEdit, handleDelete }: any) => {
                         <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">{laporan.deskripsi}</dd>
                     </div>
                 </dl>
-                {laporan.fotoSrc && <div className="px-4 py-4 sm:px-6">
-                    <Image src={laporan.fotoSrc} alt="Foto" className="h-64 w-full object-cover" />
+                {laporan.foto && <div className="px-4 py-4 sm:px-6 sm:grid sm:grid-cols-3 sm:gap-4">
+                    <span className="text-sm font-medium text-gray-500">Foto</span>
+                    <div className="relative h-64"><Image src={laporan.foto} className="cursor-pointer" alt="Foto" layout="fill" objectFit="contain" objectPosition="left" onClick={() => window.open(laporan.foto, "_blank")} /></div>
                 </div>}
+
             </div>
         </div>
     )

@@ -66,7 +66,7 @@ const CreateForm = () => {
                     value={laporan.judul}
                     onChange={(e) => setLaporan({...laporan, judul: e.target.value})}
                     type="text"
-                    placeholder="Berikan judul singkat seperti 'Tabrak lari' atau 'Tawuran'"
+                    placeholder="Berikan judul singkat"
                     className='block rounded-md'
                 />
                 <p>Lokasi: </p>
@@ -77,12 +77,12 @@ const CreateForm = () => {
                         type="text" 
                         className="block rounded-md w-1/2"
                     />
-                  <button
+                  {/* <button
                     type="button"
                     onClick={() => {}}
                   >
                     Deteksi Lokasi
-                    </button>
+                    </button> */}
                 </div>
                 <p>Deskripsi:</p>
                 <textarea 
@@ -126,7 +126,7 @@ const CreateForm = () => {
                 <button 
                     type="submit"
                     disabled={submitting}
-                    className='btn-primary w-full rounded-md py-2 bg-blue-500 text-white hover:bg-blue-600 transition duration-200'
+                    className='mb-10 btn-primary w-full rounded-md py-2 bg-blue-500 text-white hover:bg-blue-600 transition duration-200'
                 >
                     {submitting ? "Mengirim..." : "Kirim"}
                 </button>
