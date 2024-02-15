@@ -15,6 +15,9 @@ const LaporanSchema = new mongoose.Schema({
     deskripsi: {
         type: String,
     },
+    waktu: {
+        type: String,
+    },
     foto: {
         type: String,
     }

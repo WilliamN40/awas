@@ -1,7 +1,7 @@
 "use client"
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const CreateForm = () => {
@@ -11,10 +11,15 @@ const CreateForm = () => {
     const [laporan, setLaporan] = useState({
         judul: "",
         lokasi: "",
+        waktu: "",
         deskripsi: "",
     });
     const [foto, setFoto] = useState(''); 
     const [fotoSrc, setFotoSrc] = useState('');
+
+    useEffect(() => {
+        setLaporan({...laporan, waktu: new Date().toLocaleString('sv')});
+    }, []);
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
@@ -43,6 +48,7 @@ const CreateForm = () => {
                     judul: laporan.judul,
                     lokasi: laporan.lokasi,
                     deskripsi: laporan.deskripsi,
+                    waktu: laporan.waktu,
                     fotoSrc: fotoSrc
                 }),
             })
@@ -93,6 +99,12 @@ const CreateForm = () => {
                     placeholder='Berikan deskripsi singkat kejadian'
                 />
                 
+                <p>Waktu:</p>
+                <input 
+                    type="datetime-local"
+                    value={laporan.waktu}
+                    onChange={(e) => setLaporan({...laporan, waktu: e.target.value})}
+                />
                 
                 <p>Foto:</p>
                 

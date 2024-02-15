@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { v4 } from "uuid";
 
 export const POST = async (req: NextRequest) => {
-    const { judul, lokasi, deskripsi, fotoSrc } = await req.json();
+    const { judul, lokasi, deskripsi, waktu, fotoSrc } = await req.json();
     let userID = req.cookies.get('userID')?.value;
     if (userID === undefined) {
         const newUserID = v4();
@@ -30,6 +30,7 @@ export const POST = async (req: NextRequest) => {
             judul,
             lokasi,
             deskripsi,
+            waktu,
             foto: fotoUrl,
         });
 
