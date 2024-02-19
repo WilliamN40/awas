@@ -103,7 +103,7 @@ const CreateForm = () => {
                 <input 
                     type="datetime-local"
                     value={laporan.waktu}
-                    onChange={(e) => setLaporan({...laporan, waktu: e.target.value})}
+                    onChange={(e) => setLaporan({...laporan, waktu: e.target.valueAsDate?.toLocaleString('sv') || new Date().toLocaleString('sv')})}
                 />
                 
                 <p>Foto:</p>
