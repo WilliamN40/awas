@@ -2,6 +2,8 @@ import Image from "next/image";
 
 const LaporanCard = ({ laporan, canAccess, handleEdit, handleDelete }: any) => {
 
+    const convertedTime = new Date(laporan.waktu).toLocaleString('id-ID', { dateStyle: 'full', timeStyle: 'short' }); 
+
     return (
         <div className="border border-gray-300 my-3 bg-white shadow overflow-hidden sm:rounded-lg">
             <div className="flex justify-between">
@@ -34,7 +36,7 @@ const LaporanCard = ({ laporan, canAccess, handleEdit, handleDelete }: any) => {
                 <dl>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Waktu</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">{laporan.waktu}</dd>
+                        <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">{convertedTime}</dd>
                     </div>
                 </dl>
                 {laporan.foto && <div className="px-4 py-4 sm:px-6 sm:grid sm:grid-cols-3 sm:gap-4">

@@ -6,6 +6,16 @@ import { useRouter } from 'next/navigation';
 
 const CreateForm = () => {
 
+    const convertToDateTimeLocalString = (date: Date) => {
+        const year = date.getFullYear();
+        const month = (date.getMonth() + 1).toString().padStart(2, "0");
+        const day = date.getDate().toString().padStart(2, "0");
+        const hours = date.getHours().toString().padStart(2, "0");
+        const minutes = date.getMinutes().toString().padStart(2, "0");
+      
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
+
     const router = useRouter();
     const [submitting, setSubmitting] = useState(false);
     const [laporan, setLaporan] = useState({
@@ -18,7 +28,7 @@ const CreateForm = () => {
     const [fotoSrc, setFotoSrc] = useState('');
 
     useEffect(() => {
-        setLaporan({...laporan, waktu: new Date().toLocaleString('sv')});
+        setLaporan({...laporan, waktu: convertToDateTimeLocalString(new Date())});
     }, []);
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -103,7 +113,7 @@ const CreateForm = () => {
                 <input 
                     type="datetime-local"
                     value={laporan.waktu}
-                    onChange={(e) => setLaporan({...laporan, waktu: e.target.valueAsDate?.toLocaleString('sv') || new Date().toLocaleString('sv')})}
+                    onChange={(e) => setLaporan({...laporan, waktu: convertToDateTimeLocalString(new Date(e.target.value))})}
                 />
                 
                 <p>Foto:</p>
