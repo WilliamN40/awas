@@ -12,12 +12,12 @@ const LaporanCard = ({ laporan, canAccess, handleEdit, handleDelete }: any) => {
                     <p className="mt-1 max-w-2xl text-sm text-gray-500">{laporan.lokasi}</p>
                 </div>
                 {canAccess && <div className="flex px-4 py-5 gap-5">
-                    <p
+                    {/* <p
                         className="cursor-pointer text-green-500"
                         onClick={() => handleEdit(laporan)}
                     >
                         Edit
-                    </p>
+                    </p> */}
                     <p
                         className="cursor-pointer text-orange-500"
                         onClick={() => handleDelete(laporan)}
@@ -39,7 +39,7 @@ const LaporanCard = ({ laporan, canAccess, handleEdit, handleDelete }: any) => {
                         <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">{convertedTime}</dd>
                     </div>
                 </dl>
-                {laporan.foto && <div className="px-4 py-4 sm:px-6 sm:grid sm:grid-cols-3 sm:gap-4">
+                {laporan.foto && <div className="bg-gray-50 px-4 py-4 sm:px-6 sm:grid sm:grid-cols-3 sm:gap-4">
                     <span className="text-sm font-medium text-gray-500">Foto</span>
                     <div className="relative h-64"><Image src={laporan.foto} className="cursor-pointer" alt="Foto" layout="fill" objectFit="contain" objectPosition="left" onClick={() => window.open(laporan.foto, "_blank")} /></div>
                 </div>}
