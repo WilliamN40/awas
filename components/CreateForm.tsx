@@ -91,7 +91,7 @@ const CreateForm = () => {
                         value={laporan.lokasi}
                         onChange={(e) => setLaporan({...laporan, lokasi: e.target.value})}
                         type="text" 
-                        className="block rounded-md w-1/2"
+                        className="block rounded-md w-full"
                     />
                   {/* <button
                     type="button"

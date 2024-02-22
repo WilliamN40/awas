@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import LaporanCard from "@/components/LaporanCard";
 import { getCookie } from "cookies-next";
-import { set } from "mongoose";
-import { setLazyProp } from "next/dist/server/api-utils";
 
 const ListLaporan = ({ data, handleEdit, handleDelete }: any) => {
 
